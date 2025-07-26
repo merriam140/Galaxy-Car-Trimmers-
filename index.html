@@ -14,35 +14,36 @@
       
     }
     header {
-      background-color: #ccc;
-      padding: 20px;
-      flex-wrap:wrap; 
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between; 
-      background: linear-gradient(to right, #ccc, #999);
-    }
-    .header-left h1{
-      color: #222;
-      margin:0;  
-    }
-    .header-right ul{
-         list-style: none;
-         padding: 0;
-         margin: 0;
-         display: flex;
-         flex-direction: column;
-         align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: linear-gradient(to right, #ccc, #999);
+  padding: 20px;
+}
 
-    }
-    .header-right ul li{
-      margin-bottom:10px;
-    }
-    header-right ul li a {
-      text-decoration:none;
-      color:black;  
-      font-weight:bold;	    
-    }
+.logo-section {
+  flex: 1;
+}
+
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.side-nav ul li {
+  margin-bottom: 10px;
+}
+
+.side-nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
       main {
       flex: 1;
       }
@@ -69,20 +70,20 @@
 <body>
   <main>
   <header>
-   
-  <nav class="header-right">
+  <div class="logo-section">
+    <h1>Galaxy Car Trimmers</h1>
+    <p><em>Car Interior Services</em></p>
+  </div>
+  <nav class="side-nav">
     <ul>
-   <li><a href="#about us">About Us</a></li>
-   <li><a href="#services">Services</a></li>
-   <li><a href="#gallery">Gallery</a></li>
-   <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-    <div class="header-left">  
-    <h1>Galaxy Car Trimmers</h1>
-    <p><em>Car Interior Services</em></p>    
-    </div>
-  </header>
+</header>
+
   
    <section id="about-us" class="about us">
      <p>About Us</p>
