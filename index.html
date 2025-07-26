@@ -16,27 +16,21 @@
     header {
       background-color: #ccc;
       padding: 20px;
+      position: relative;   
       display:flex;
-      align-items:flex-start;
+      align-items:center;
       justify-content:space-between; 
       background: linear-gradient(to right, #ccc, #999);
     }
-    .header-left{
-        max-width:60%;
-    }
-    .header-left h1{
+    header h1{
       color: #222;
       margin:0;  
     }
-    .header-left p {
-	margin: 5px 0 0;
-	font-style:italic;
-    } 
-   nav {
-       display:flex;
-       flex-direction:column;
-       align-items:flex-end;   
-   }
+    #sidenav {
+	 position:absolute;
+	 top:20px;
+	 right:20px;   
+    }  
     nav ul{
       list-style:none;
       padding:0;
@@ -76,7 +70,7 @@
 <body>
   <main>
   <header>
- 
+   <div id="sidenav">
   <nav>
     <ul>
    <li><a href="#about us">About Us</a></li>
@@ -85,10 +79,9 @@
    <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
- <div class="header-left">
+   </div> 
     <h1>Galaxy Car Trimmers</h1>
     <p><em>Car Interior Services</em></p>
- </div>	 
   </header>
   
    <section id="about-us" class="about us">
