@@ -21,24 +21,34 @@
       justify-content:space-between; 
       background: linear-gradient(to right, #ccc, #999);
     }
-    header h1{
+    .header-left{
+        max-width:60%;
+    }
+    .header-left h1{
       color: #222;
       margin:0;  
     }
+    .header-left p {
+	margin: 5px 0 0;
+	font-style:italic;
+    } 
+   nav {
+       display:flex;
+       flex-direction:column;
+       align-items:flex-end;   
+   }
     nav ul{
       list-style:none;
       padding:0;
-      margin:0; 
-      diplay:flex;
-      flex-direction:column;   
-	    
-    }
+      margin:0;  
+  }
     nav ul li{
       margin-bottom:10px;
     }
     nav ul li a {
       text-decoration:none;
-      color:#000;  
+      color:#222;  
+      font-weight:bold;	    
     }
       main {
       flex: 1;
@@ -46,7 +56,7 @@
     section {
       padding: 40px 20px;
     }
-    .about us, .services, .contact, .gallery {
+    .about-us, .services, .contact, .gallery {
       background-color: white;
       margin: 20px auto;
       padding: 20px;
@@ -75,13 +85,13 @@
    <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
- <div>
+ <div class="header-left">
     <h1>Galaxy Car Trimmers</h1>
     <p><em>Car Interior Services</em></p>
  </div>	 
   </header>
   
-   <section id="about us" class="about us">
+   <section id="about-us" class="about us">
      <p>About Us</p>
 
      
