@@ -11,6 +11,7 @@
       margin: 0;
       background-color: #f4f4f4;
       color: #333;
+      display:flex;
     }
     header {
       background-color: #ccc;
@@ -23,21 +24,20 @@
       color: #222;
     }
     nav {
-      padding: 10px;
-      width:170px;
-	    height:100vh;
-	    position:fixed;
-	    right:-250px;
-	    top:0;
-	    background:#C7B8AE;
-	    z-index:2;
-	    transition:0.5s;
+      background-color: #888;
+      width: 200px;
+      height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
     }
     nav a {
+      display: block;
       color: white;
-      margin: 0 15px;
+      margin: 15px 0;
       text-decoration: none;
     }
+      main {
+      flex: 1;
     section {
       padding: 40px 20px;
     }
