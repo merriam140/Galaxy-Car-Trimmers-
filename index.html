@@ -100,14 +100,19 @@
   opacity: 1;
   transform: translateY(0);
 }
-.typewriter p {
+  .typewriter p {
     overflow: hidden;
-    border-right: 2px solid black;
-    white-space: nowrap;
     display: inline-block;
+    white-space: normal; /* ✅ Let text wrap */
+    border-right: 2px solid black;
     font-family: monospace;
+    animation: typing 0s steps(1, end) forwards, blink 0.7s step-end infinite;
+  }
+
+  .typewriter p.typing {
     width: 0;
-    animation: typing steps(var(--chars)) 3s var(--delay) forwards, blink 0.7s step-end infinite;
+    white-space: nowrap; /* ✅ Temporarily stop wrapping while typing */
+    animation: typing steps(var(--chars)) var(--speed) var(--delay) forwards, blink 0.7s step-end infinite;
   }
 
   @keyframes typing {
@@ -118,7 +123,6 @@
   @keyframes blink {
     50% { border-color: transparent; }
   }
-
 
   </style>
 </head>
@@ -141,22 +145,22 @@
 <section id="about-us" class="about-us">
   <h2>About Us</h2>
   <div class="typewriter">
-    <p style="--delay: 0s; --chars: 110;">
+    <p class="typing" style="--delay: 0s; --speed: 3s; --chars: 90;">
       Welcome to <strong>Galaxy Car Trimmers</strong> – your trusted specialists in premium car interior services.
     </p>
-    <p style="--delay: 4s; --chars: 140;">
+    <p class="typing" style="--delay: 4s; --speed: 3s; --chars: 100;">
       We are passionate about transforming your vehicle's interior to give it a clean, stylish, and luxurious feel.
     </p>
-    <p style="--delay: 8s; --chars: 160;">
-      With years of experience in upholstery and trimming, our team is committed to delivering top-quality workmanship.
+    <p class="typing" style="--delay: 8s; --speed: 3s; --chars: 95;">
+      With years of experience in upholstery and trimming, our team is committed to top-quality workmanship.
     </p>
-    <p style="--delay: 12s; --chars: 145;">
+    <p class="typing" style="--delay: 12s; --speed: 3s; --chars: 100;">
       Whether it's <strong>roof lining recovery</strong>, <strong>side pillars</strong>, <strong>carpet flooring</strong>, or <strong>door panels</strong>, we ensure every detail is perfect.
     </p>
-    <p style="--delay: 16s; --chars: 120;">
+    <p class="typing" style="--delay: 16s; --speed: 3s; --chars: 90;">
       We pride ourselves on attention to detail, fair pricing, and excellent customer service.
     </p>
-    <p style="--delay: 20s; --chars: 90;">
+    <p class="typing" style="--delay: 20s; --speed: 3s; --chars: 85;">
       At Galaxy Car Trimmers, your satisfaction is our top priority.
     </p>
   </div>
