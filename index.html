@@ -24,8 +24,23 @@
 .logo-section {
   flex: 1;
 }
+/* Slide-in animation */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+    
 .side-nav{
   width:200px;
+  animation: slideInRight 0.8s ease-out forwards;
+
 }
  .side-nav a {
    display:block;
@@ -53,10 +68,12 @@
   text-decoration: none;
   font-weight: bold;
   color: black;
+  transition: background 0.3s, transform 0.3s;
 }
-.sidenav a: hover{
-  background:#f4f4f4;
-  transform: scale(1.1) translateY(-5px);
+.sidenav ul li a: hover{
+  background: linear-gradient(to right, #ccc, #999)  ;
+  transform: translateX(-5px);
+
     
 }
       main {
