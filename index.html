@@ -100,17 +100,14 @@
   opacity: 1;
   transform: translateY(0);
 }
-  .typewriter p {
+
+.typewriter p {
   font-family: monospace;
   overflow: hidden;
   border-right: 2px solid black;
-  white-space: normal; /* Allow line wrap */
-  animation: blinkCursor 0.7s steps(1) infinite;
-}
-
-.typewriter p.typing {
+  white-space: normal;
   display: inline-block;
-  animation: none;
+  animation: blinkCursor 0.7s steps(1) infinite;
 }
 
 @keyframes blinkCursor {
@@ -118,7 +115,6 @@
     border-color: transparent;
   }
 }
-
   </style>
 </head>
 <body>
@@ -140,24 +136,12 @@
 <section id="about-us" class="about-us">
   <h2>About Us</h2>
   <div class="typewriter">
-    <p>
-      Welcome to <strong>Galaxy Car Trimmers</strong> – your trusted specialists in premium car interior services.
-    </p>
-    <p>
-      We are passionate about transforming your vehicle's interior to give it a clean, stylish, and luxurious feel.
-    </p>
-    <p>
-      With years of experience in upholstery and trimming, our team is committed to top-quality workmanship.
-    </p>
-    <p>
-      Whether it's <strong>roof lining recovery</strong>, <strong>side pillars</strong>, <strong>carpet flooring</strong>, or <strong>door panels</strong>, we ensure every detail is perfect.
-    </p>
-    <p>
-      We pride ourselves on attention to detail, fair pricing, and excellent customer service.
-    </p>
-    <p>
-      At Galaxy Car Trimmers, your satisfaction is our top priority.
-    </p>
+    <p data-text="Welcome to <strong>Galaxy Car Trimmers</strong> – your trusted specialists in premium car interior services."></p>
+    <p data-text="We are passionate about transforming your vehicle's interior to give it a clean, stylish, and luxurious feel."></p>
+    <p data-text="With years of experience in upholstery and trimming, our team is committed to top-quality workmanship."></p>
+    <p data-text="Whether it's <strong>roof lining recovery</strong>, <strong>side pillars</strong>, <strong>carpet flooring</strong>, or <strong>door panels</strong>, we ensure every detail is perfect."></p>
+    <p data-text="We pride ourselves on attention to detail, fair pricing, and excellent customer service."></p>
+    <p data-text="At Galaxy Car Trimmers, your satisfaction is our top priority."></p>
   </div>
 </section>
 
@@ -220,9 +204,64 @@
 
     typeWriter();
   });
- 
-    
-</script>
+function typeHTMLText(element, html, speed, callback) {
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = html;
+  const nodes = Array.from(tempDiv.childNodes);
+
+  let i = 0;
+  function typeNode() {
+    if (i >= nodes.length) {
+      callback();
+      return;
+    }
+    const node = nodes[i];
+    i++;
+
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.textContent;
+      let j = 0;
+      const span = document.createElement("span");
+      element.appendChild(span);
+      function typeChar() {
+        span.textContent += text[j];
+        j++;
+        if (j < text.length) {
+          setTimeout(typeChar, speed);
+        } else {
+          typeNode();
+        }
+      }
+      typeChar();
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      const clone = node.cloneNode(false);
+      element.appendChild(clone);
+      const childHTML = node.innerHTML;
+      typeHTMLText(clone, childHTML, speed, typeNode);
+    }
+  }
+  typeNode();
+}
+
+function startTypingParagraphs() {
+  const paragraphs = document.querySelectorAll('.typewriter p');
+  let index = 0;
+
+  function typeNext() {
+    if (index >= paragraphs.length) return;
+    const p = paragraphs[index];
+    const text = p.dataset.text;
+    typeHTMLText(p, text, 20, () => {
+      index++;
+      typeNext();
+    });
+  }
+
+  typeNext();
+}
+
+window.addEventListener("DOMContentLoaded", startTypingParagraphs);
+</script> 
 
 </body>
 </html>
