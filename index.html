@@ -90,6 +90,17 @@
       padding: 20px;
       background-color: #ccc;
     }
+    .fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
   </style>
 </head>
 <body>
@@ -151,5 +162,24 @@
     <p>&copy; 2025 Galaxy Car Trimmers. All rights reserved.</p>
   </footer>
 </main>
+  <script>
+  const sections = document.querySelectorAll('section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  sections.forEach(section => {
+    section.classList.add('fade-in');
+    observer.observe(section);
+  });
+</script>
+
 </body>
 </html>
