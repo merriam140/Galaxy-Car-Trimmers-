@@ -150,8 +150,38 @@
     }
     img:hover{
      transform: scale(1.1) translateY(-5px);
-    
     }
+
+   .gallery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+}
+
+.gallery-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: scale(1.02);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
     .contact i {
       margin-right: 10px;
     }
@@ -230,18 +260,33 @@
 </section>
 
   <section id="gallery" class="gallery">
-    <h2>Gallery</h2>
-    <p>Before and after pictures </p>
-    <!-- Add images -->
-    <img src="IMG-20250723-WA0003.jpg" alt="Before interior" width="45%">
-    <img src="IMG-20250723-WA0001.jpg" alt="After interior" width="45%">
-    <img src="IMG-20250726-WA0022.jpg " alt="Before interior" width="45%"> 
-    <img src="IMG-20250726-WA0023.jpg " alt="After interior" width="45%">
-    <img src="IMG-20250726-WA0013.jpg " alt="Before interior" width="45%">
-    <img src="IMG-20250726-WA0010.jpg " alt="After interior" width="45%">
-    <img src="IMG-20250726-WA0014.jpg " alt="Before interior" width="45%">
-    <img src="IMG-20250726-WA0009.jpg " alt="After interior" width="45%">
-  </section>
+  <h2>Gallery</h2>
+  <div class="gallery-grid">
+    <!-- Container 1 -->
+    <div class="gallery-card">
+      <img src="IMG-20250723-WA0003.jpg" alt="Before Interior">
+      <img src="IMG-20250723-WA0001.jpg" alt="After Detail">
+    </div>
+
+    <!-- Container 2 -->
+    <div class="gallery-card">
+      <img src="IMG-20250726-WA00022.jpg" alt="Before Interior">
+      <img src="IMG-20250726-WA00023.jpg" alt="After Detail">
+    </div>
+
+    <!-- Container 3 -->
+    <div class="gallery-card">
+      <img src="IMG-20250726-WA00013.jpg" alt="Custom Stitching">
+      <img src="IMG-20250726-WA00010.jpg" alt="Clean Interior">
+    </div>
+
+    <!-- Container 4 -->
+    <div class="gallery-card">
+      <img src="IMG-20250726-WA00014.jpg" alt="Roofline Work">
+      <img src="IMG-20250726-WA0009.jpg" alt="Door Panel Finish">
+    </div>
+  </div>
+</section>
 
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
