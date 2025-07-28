@@ -182,6 +182,45 @@
     .contact i {
       margin-right: 10px;
     }
+    .contact-form {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #25d366; /* WhatsApp green */
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #128c7e;
+}
     footer {
       text-align: center;
       padding: 20px;
@@ -282,14 +321,23 @@
   </div>
 </section>
 
-  
-
   <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p><strong>Phone:</strong> 📞 0682177238</p>
-    <p><strong>TikTok:</strong> @Galaxy car trimmers</p>
-    <p><strong>Facebook:</strong>@Galaxy car trimmers</p>
-  </section>
+  <h2>Contact Us</h2>
+  <p><strong>Phone:</strong> 📞 0682177238</p>
+  <p><strong>TikTok:</strong> @Galaxy car trimmers</p>
+  <p><strong>Facebook:</strong> Galaxy car trimmers</p>
+
+  <h3>Send us a message via WhatsApp</h3>
+  <form class="contact-form" onsubmit="sendWhatsAppMessage(event)">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button type="submit">Send via WhatsApp</button>
+  </form>
+</section>
 
   <footer>
     <p>&copy; 2025 Galaxy Car Trimmers. All rights reserved.</p>
@@ -386,6 +434,18 @@ function startTypingParagraphs() {
 }
 
 window.addEventListener("DOMContentLoaded", startTypingParagraphs);
+
+    
+  function sendWhatsAppMessage(event) {
+    event.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const phoneNumber = "27682177238"; // 🔁 Replace with your own number!
+
+    const fullMessage = `Hello, my name is ${name}. ${message}`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`;
+    window.open(url, "_blank");
+  }
 </script> 
 
 </body>
