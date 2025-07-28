@@ -91,6 +91,55 @@
       max-width: 1000px;
       border-radius: 10px;
     }
+  /* General Section Styling */
+/* Flex container */
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Service Card */
+.service-card {
+  background-color: #ccc;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  width: 300px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.service-card h3 {
+  margin-bottom: 10px;
+  color: #222;
+  font-size: 1.3em;
+}
+
+.service-card p {
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+/* Hover Effect */
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card {
+    width: 90%;
+  }
+}
     img{
       border:none;
       border-radius:15px;
@@ -156,15 +205,27 @@
     <p data-text="At Galaxy Car Trimmers, your satisfaction is our top priority."></p>
   </div>
 </section>
-<section id="services" class="services">
-      <h2>Our Services</h2>
-      <ul>
-        <li>Roofline Recovery</li>
-        <li>Side Pillars</li>
-        <li>Carpet Flooring</li>
-        <li>Door Panels</li>
-      </ul>
-    </section>
+<section id="services" class ="services">
+  <h2>Our Services</h2>
+  <div class="services-container">
+    <div class="service-card">
+      <h3>Roof Lining Recovery</h3>
+      <p>Restore sagging or damaged headliners to like-new condition with premium materials.</p>
+    </div>
+    <div class="service-card">
+      <h3>Side Pillars Trimming</h3>
+      <p>Precision trimming of side pillars for a clean, factory-quality finish.</p>
+    </div>
+    <div class="service-card">
+      <h3>Carpet Flooring</h3>
+      <p>Install durable and elegant carpet flooring tailored to your car’s interior.</p>
+    </div>
+    <div class="service-card">
+      <h3>Door Panel Upholstery</h3>
+      <p>Reupholster and enhance your door panels with custom finishes and colors.</p>
+    </div>
+  </div>
+</section>
 
   <section id="gallery" class="gallery">
     <h2>Gallery</h2>
