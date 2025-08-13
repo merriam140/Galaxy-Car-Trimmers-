@@ -13,45 +13,53 @@
       color: #333;
       
     }
-    /* Popup overlay */
-#welcome-popup {
+
+    /* Fullscreen loader background */
+#loading-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background:linear-gradient(to right, #ccc, #999) ;
+  background: #111;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease; /* fade-out animation */
 }
 
-/* Popup box */
-.popup-content {
-  background: #ccc;
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  max-width: 400px;
-  width: 80%;
-  animation: popupFade 0.5s ease-in-out;
+/* Breathing circle animation */
+.breathing-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #ff6600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: white;
+  font-family: Arial, sans-serif;
+  animation: breathe 2s ease-in-out infinite;
 }
 
-/* Animation */
-@keyframes popupFade {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+/* Breathing animation */
+@keyframes breathe {
+  0%   { transform: scale(1); opacity: 1; }
+  50%  { transform: scale(1.15); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-.popup-content h2 {
-  margin-bottom: 15px;
-  font-size: 1.5rem;
+/* Fade-in main content */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
 }
 
-.popup-content p {
-  font-size: 1rem;
-  color: #555;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
    header {
     display: flex;
@@ -290,12 +298,16 @@
 </head>
 <body>
   <main>
-    <!-- Popup Overlay -->
-<div id="welcome-popup">
-  <div class="popup-content">
-    <h2>🚗 Welcome to Galaxy Car Trimmers ✨</h2>
-    <p>Your ride deserves the best! Please wait while we prepare something amazing for you…</p>
+    <!-- Loading Screen -->
+<div id="loading-screen">
+  <div class="breathing-circle">
+    <span id="loading-text">Loading</span>
   </div>
+</div>
+
+<!-- Main Website Content -->
+<div id="main-content" style="display:none;">
+  <!-- Your full website content here -->
 </div>
   <header>
   <div class="logo-section">
@@ -393,11 +405,33 @@
   </footer>
 </main>
   <script>
-window.addEventListener("load", function() {
-    setTimeout(function(){
-      document.getElementById("welcome-popup").style.display = "none";
-    }, 4000); // Hide after 4 seconds
+  let dots = 0;
+  const loadingText = document.getElementById("loading-text");
+
+  // Animate dots
+  const dotInterval = setInterval(() => {
+    dots = (dots + 1) % 4; // cycle 0-3
+    loadingText.textContent = "Loading" + ".".repeat(dots);
+  }, 500);
+
+  // Hide loading screen with fade-out after 4 seconds
+  window.addEventListener("load", function() {
+    setTimeout(function() {
+      clearInterval(dotInterval); // stop dots
+
+      const loadingScreen = document.getElementById("loading-screen");
+      loadingScreen.style.opacity = "0"; // fade-out
+
+      setTimeout(() => {
+        loadingScreen.style.display = "none"; // remove after fade
+        const mainContent = document.getElementById("main-content");
+        mainContent.style.display = "block";
+        mainContent.classList.add("fade-in");
+      }, 1000); // match transition time
+    }, 4000);
   });
+
+
 
     
   const sections = document.querySelectorAll('section');
