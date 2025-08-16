@@ -61,21 +61,21 @@
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-   header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: url(IMG-20250728-WA0009~2.jpg);
-    background-size:cover;
-    background-position:center;
-    padding: 20px;
+/* Header */
+header {
+  background: #fff;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* logo centered */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.logo-section {
-  flex: 1;
-  color:black;
-  font-size:19px;
+header .logo img {
+  height: 60px;
+  width: auto;
 }
+    
 /* Slide-in animation */
 @keyframes slideInRight {
   0% {
@@ -302,8 +302,9 @@
   <!-- Your full website content here -->
 </div>
   <header>
-  <div class="logo-section">
-  </div>  
+  <div class="logo">
+    <img src="IMG-20250728-WA0009~2.jpg " alt="Galaxy Car Trimmers Logo">
+  </div>
 </header>
 <section id="about-us" class="about-us">
   <h2>About Us</h2>
