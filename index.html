@@ -228,7 +228,46 @@
   border-radius: 6px;
   object-fit: cover;
 }
- 
+.testimonials {
+  background: #f8f9fa;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.testimonial-slider {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.testimonial {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-style: italic;
+  display: none;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.testimonial h4 {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #222;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+    
     .contact i {
       margin-right: 10px;
     }
@@ -352,6 +391,28 @@
       <p>Reupholster and enhance your door panels with custom finishes and colors.</p>
     </div>
   </div>
+
+  <!-- Testimonial Section -->
+<section class="testimonials">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonial-slider">
+    <div class="testimonial">
+      <p> Excellent service from Galaxy Trimmers replacing my TT's headliner in the comfort of my own garage at home, job done in about 2 hours. Will refer them anytime. </p>
+      <h4>- Pieter Pienaar </h4>
+    </div>
+
+    <div class="testimonial">
+      <p>"Professional, affordable, and fast service. My car looks brand new again!"</p>
+      <h4>- Sarah K.</h4>
+    </div>
+
+    <div class="testimonial">
+      <p>  I am so happy with the job, my car was as good as new. </p>
+      <h4>- Nondumiso Mbatha </h4>
+    </div>
+  </div>
+</section>
+
 </section>
 
 <section id="gallery" class="gallery">
@@ -378,6 +439,8 @@
       <img src="IMG-20250726-WA0009.jpg" alt="After Door">
     </div>
   </div>
+
+  
 </section>
 
   <section id="contact" class="contact">
@@ -523,6 +586,20 @@ function startTypingParagraphs() {
 
 window.addEventListener("DOMContentLoaded", startTypingParagraphs);
 
+let index = 0;
+  const testimonials = document.querySelectorAll(".testimonial");
+  
+  function showTestimonial() {
+    testimonials.forEach((t, i) => {
+      t.style.display = (i === index) ? "block" : "none";
+    });
+    index = (index + 1) % testimonials.length;
+  }
+
+  showTestimonial();
+  setInterval(showTestimonial, 4000); // Change every 4 seconds
+
+    
     
   function sendWhatsAppMessage(event) {
     event.preventDefault();
