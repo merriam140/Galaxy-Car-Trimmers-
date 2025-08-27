@@ -79,11 +79,15 @@
 /* Header with full background image */
 header {
   height: 45vh; /* adjust the height of the section */
-  background: url('IMG-20250723-WA0003.jpg') no-repeat center center/cover;
+  background:linear-gradient( to bottom,
+    rgba(233, 220, 203, 0),     /* fully transparent at the top */
+    rgba(233, 220, 203, 0.05),  /* very light in the middle */
+    rgba(233, 220, 203, 0.35)   /* stronger tint at the bottom */
+  ) ,url('IMG-20250723-WA0003.jpg') no-repeat center center/cover;
 }
 .picture {
-  height:90px;
-  width:90px;
+  height:85px;
+  width:85px;
   border-radius:50%;
   border:none;
   text-align:left;
